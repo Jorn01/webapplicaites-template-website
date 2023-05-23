@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template:
+    "nav nav nav nav nav"
+    "search main main main main"
+    "footer footer footer footer footer";
+  grid-gap: 10px;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #f50000;
+}
+main {
+  grid-area: main;
+  background-color: #3e1515;
+  height: fit-content;
+  min-height: 50rem;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #00f56a;
+  height: 2rem;
+  min-height: 5rem;
+}
+
+#search {
+  grid-area: search;
+  background-color: #f5f500;
+  height: fit-content;
+  min-height: 50rem;
+}
