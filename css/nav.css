@@ -61,7 +61,11 @@ ul {
 
 .container-nav > li:hover > ul {
   display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 0.3rem;
 }
+
 #contact-small {
   display: none;
 }
