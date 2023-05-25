@@ -1,11 +1,15 @@
 /* main */
 a {
   text-decoration: none;
-  color: #000;
+  color: #000 !important;
+}
+h1 {
+  text-decoration: none;
 }
 
 /* nav bar */
 .container-nav {
+  height: 3.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -62,8 +66,11 @@ ul {
 .container-nav > li:hover > ul {
   display: block;
   position: relative;
-  z-index: 1;
   border-radius: 0.3rem;
+  position: absolute;
+  z-index: 100;
+  width: calc(100% / 7);
+  box-shadow: 0 0 0.5em 0.4em #888888;
 }
 
 #contact-small {
@@ -81,8 +88,4 @@ ul {
   .container-nav > li {
     width: calc(100% / 5);
   }
-}
-
-nav {
-  height: 3rem;
 }
