@@ -1,0 +1,43 @@
+/* create styling for the footer*/
+/* this styling needs to include a nice timeline of the opening times*/
+footer > ul,
+footer > li {
+  display: flex;
+  flex-direction: row;
+}
+footer > ul > ul {
+  background-color: var(--main-UI-color);
+  max-width: calc(100% / 3);
+  max-height: 100%;
+}
+footer > ul > ul > li,
+footer > ul > ul > h1 {
+  list-style-type: none;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 0.5em;
+}
+footer > ul > li {
+  max-width: calc(100% / 3);
+  background-color: var(--main-UI-color);
+  padding: 0.5em;
+}
+
+footer > ul > ul > li.closed {
+  color: red;
+}
+
+footer > ul > li {
+  font-size: smaller;
+}
+
+footer > ul > li > input {
+  width: 60% !important;
+}
+footer > ul > li > button {
+  width: 30% !important;
+}
+
+#email {
+  width: 100%;
+}

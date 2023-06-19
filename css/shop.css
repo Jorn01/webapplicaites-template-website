@@ -1,0 +1,73 @@
+:root {
+  --main-background-color: #f95050;
+  --secondary-background-color: #82afe1;
+  --secondary-UI-color: #036791;
+  --main-UI-color: #5e7998;
+}
+main {
+  background: linear-gradient(
+    0deg,
+    rgba(94, 121, 152, 1) 0%,
+    rgba(249, 80, 80, 1) 50%,
+    rgba(94, 121, 152, 1) 100%
+  );
+}
+
+body {
+  display: grid;
+  grid-template:
+    "header header header header header"
+    "search main main main main"
+    "search main main main main"
+    "search main main main main"
+    "footer footer footer footer footer";
+}
+
+.search {
+  grid-area: search;
+  background-color: var(--main-UI-color);
+  min-height: 70vh;
+  border: 1px solid black;
+}
+
+footer {
+  grid-area: footer;
+}
+main {
+  grid-area: main;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+}
+nav {
+  grid-area: header;
+}
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+#scrollTOP.scrolled {
+  background-color: var(--main-background-color);
+  border-radius: 50%;
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+#scrollTOP.unscrolled {
+  display: none;
+}

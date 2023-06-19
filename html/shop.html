@@ -10,14 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/animationSquares.css" />
+    <link rel="stylesheet" href="../css/shop.css" />
+    <link rel="stylesheet" href="../css/shop-item.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <script src="../js/nav.js" defer></script>
+    <script src="../js/shop-item.js" defer></script>
+    <script src="../js/shop.js" defer></script>
   </head>
   <body>
     <nav>
@@ -45,64 +47,55 @@
         </li>
       </ul>
     </nav>
-    <main>
-      <!-- //TODO todo sunset maker 3000-->
-      <div class="container-image-overlay">
-        <img src="../img/homephotostock.jpg" />
-        <h1>Meat for eveyone</h1>
-        <h5>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-          magni nihil quasi accusamus aliquid dicta!
-        </h5>
-        <button type="button" class="btn btn-primary">Shop Now</button>
-      </div>
-      <h1 id="types">Shop my meat type</h1>
-      <div class="container-image-types">
-        <div class="align">
-          <img src="../img/chicken.png" alt="chicken" />
-          <h2>chicken</h2>
-        </div>
-        <div class="align">
-          <img src="../img/cow.png" alt="cow" />
-          <h2>cow</h2>
-        </div>
-        <div class="align">
-          <img src="../img/pig.png" alt="pig" />
-          <h2>pig</h2>
-        </div>
-        <div class="align">
-          <img src="../img/lamb.png" alt="lamb" />
-          <h2>lamb</h2>
-        </div>
-      </div>
-      <div class="meatTables">
-        <img src="../img/meatTable.png" alt="meatTable" />
-        <div id="Alert">
-          <h1>Meat tables</h1>
-          <p>
-            Custom made meat tables for customers. Give us a call to make
-            further inquiries
-          </p>
-          <button type="button" class="btn btn-primary">Contact us</button>
-        </div>
-      </div>
 
-      <h1 style="text-align: center">Our best selling products</h1>
-      <div class="bestSellers">
-        <div class="align">
-          <img src="../img/shoarma.png" alt="shoarma" />
-          <h2>shoarma</h2>
-        </div>
-        <div class="align">
-          <img src="../img/doner.png" alt="doner" />
-          <h2>doner</h2>
-        </div>
-        <div class="align">
-          <img src="../img/Spareribs.png" alt="spareribs" />
-          <h2>spareribs</h2>
-        </div>
-      </div>
-    </main>
+    <main class="main"></main>
+    <div id="scrollTOP"><i class="fa-solid fa-arrow-up"></i></div>
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Search"
+        class="form-control"
+        id="formrrrmm"
+      />
+      <input
+        type="submit"
+        value="Search"
+        class="btn btn-primary"
+        id="submittttt"
+        onclick="onSubmitClick()"
+      />
+      <h2>Price</h2>
+      <label for="Price">Price</label>
+      <input
+        type="range"
+        class="custom-range"
+        min="0"
+        max="100"
+        step="5"
+        id="Price"
+      />
+      <h2>Weight</h2>
+      <label for="Weight">Weight</label>
+
+      <input
+        type="range"
+        class="custom-range"
+        min="0"
+        max="100"
+        step="5"
+        id="Weight"
+      />
+      <h2>Fat Ratio</h2>
+      <label for="Fat-Ratio">Fat Ratio</label>
+      <input
+        type="range"
+        class="custom-range"
+        min="0"
+        max="100"
+        step="10"
+        id="Fat-Ratio"
+      />
+    </div>
     <footer>
       <!--  create a footer in the same style as the header but with the information that should be in the footer-->
       <!-- for example a copyright code, and the opening times and for example a small foot note where you can use loremipsum-->

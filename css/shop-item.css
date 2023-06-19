@@ -1,0 +1,35 @@
+:root {
+  --main-background-color: #f95050;
+  --secondary-background-color: #82afe1;
+  --secondary-UI-color: #036791;
+  --main-UI-color: #5e7998;
+}
+
+.shop-item {
+  background-color: var(--secondary-UI-color);
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  /* make a boxshadow for the card items*/
+  box-shadow: 0.1rem 0.1rem 0.4rem 0 var(--secondary-background-color);
+}
+
+.shop-item img {
+  width: 50%;
+  height: auto;
+  max-width: 55%;
+  max-height: 100%;
+  border-radius: 0.5rem;
+}
+
+.shop-item > .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}

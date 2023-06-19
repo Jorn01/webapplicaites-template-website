@@ -1,3 +1,18 @@
+:root {
+  --main-background-color: #f95050;
+  --secondary-background-color: #82afe1;
+  --secondary-UI-color: #036791;
+  --main-UI-color: #5e7998;
+}
+main {
+  background: linear-gradient(
+    0deg,
+    rgba(94, 121, 152, 1) 0%,
+    rgba(249, 80, 80, 1) 50%,
+    rgba(94, 121, 152, 1) 100%
+  );
+}
+
 body {
   display: grid;
   grid-template:
@@ -6,7 +21,11 @@ body {
     "main main main"
     "main main main"
     "footer footer footer";
-  grid-gap: 2rem;
+}
+footer {
+  grid-area: footer;
+  position: relative;
+  bottom: 0;
 }
 
 main {
@@ -17,7 +36,7 @@ nav {
   grid-area: header;
 }
 
-img {
+.container-image-overlay > img {
   /* center the image */
   display: block;
   margin-left: auto;
@@ -39,7 +58,7 @@ img {
   font-size: 3rem;
 }
 
-.container-image-overlay > h3 {
+.container-image-overlay > h5 {
   position: absolute;
   top: 45%;
   left: 17.5%;
@@ -62,4 +81,71 @@ img {
   .container-image-overlay > button {
     display: none;
   }
+}
+.btn-primary {
+  background-color: var(--secondary-UI-color) !important;
+  border-color: var(--main-UI-color) !important;
+}
+
+* :not("i") {
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+.container-image-types > img {
+  width: calc(100% / 4);
+}
+
+@media screen and (max-width: 700px) {
+  .container-image-types > img {
+    width: calc(100% / 2);
+    margin: 1rem;
+  }
+}
+.container-image-types > h2,
+.bestSellers > h2 {
+  text-align: center;
+  margin-top: 100px;
+}
+.bestSellers > img {
+  width: calc(100% / 3);
+}
+.align {
+  text-align: center;
+}
+
+.container-image-types,
+.bestSellers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+#types {
+  margin: 2rem;
+  text-align: center;
+}
+
+.meatTables {
+  margin: 10rem;
+}
+
+#Alert {
+  position: absolute;
+  top: 190%;
+  left: 40%;
+  width: auto;
+  max-width: calc(100% / 5 * 2);
+  height: auto;
+  background-color: var(--main-UI-color);
+  border-radius: 10px;
+}
+@media screen and (max-width: 1200px) {
+  #Alert {
+    top: 260%;
+  }
+}
+
+#Alert > * {
+  margin: 1rem 0 0 1rem;
 }
