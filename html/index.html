@@ -8,6 +8,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dc3545" />
+    <meta name="description" content="Meat for everyone" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/main.css" />
@@ -22,9 +24,9 @@
   <body>
     <nav>
       <ul class="container-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li>
+        <li id="Home"><a href="#">Home</a></li>
+        <li id="About"><a href="#">About</a></li>
+        <li id="Shop">
           <a href="#">Shop</a>
           <ul>
             <li><a href="#">Shop 1</a></li>
@@ -38,17 +40,40 @@
         <li id="contact-small">
           <i class="fa-solid fa-bars"></i>
           <ul>
-            <li class="contact-bar"><i class="fa-solid fa-phone"></i></li>
-            <li class="contact-bar"><i class="fa-solid fa-envelope"></i></li>
-            <li class="contact-bar"><i class="fa-solid fa-user"></i></li>
+            <li class="contact-bar">
+              <i class="fa-solid fa-phone" style="color: #ffffff"></i>
+            </li>
+            <li class="contact-bar">
+              <i class="fa-solid fa-envelope" style="color: #ffffff"></i>
+            </li>
+            <li class="contact-bar">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+            </li>
           </ul>
         </li>
       </ul>
+      <div id="popupContainer">
+        <div id="popupContent">
+          <h2>Login</h2>
+          <form action="">
+            <div id="username">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" />
+            </div>
+            <div id="password">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" />
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+          </form>
+          <button id="closePopup" class="btn btn-danger">Close</button>
+        </div>
+      </div>
     </nav>
+
     <main>
-      <!-- //TODO todo sunset maker 3000-->
       <div class="container-image-overlay">
-        <img src="../img/homephotostock.jpg" />
+        <img src="../img/homephotostock.jpg" alt="stockPhoto" />
         <h1>Meat for eveyone</h1>
         <h5>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
@@ -59,24 +84,26 @@
       <h1 id="types">Shop my meat type</h1>
       <div class="container-image-types">
         <div class="align">
-          <img src="../img/chicken.png" alt="chicken" />
+          <img src="../img/chicken.webp" alt="chicken" />
           <h2>chicken</h2>
         </div>
         <div class="align">
-          <img src="../img/cow.png" alt="cow" />
+          <img src="../img/cow.webp" alt="cow" />
           <h2>cow</h2>
         </div>
         <div class="align">
-          <img src="../img/pig.png" alt="pig" />
+          <img src="../img/pig.webp" alt="pig" />
           <h2>pig</h2>
         </div>
         <div class="align">
-          <img src="../img/lamb.png" alt="lamb" />
+          <img src="../img/lamb.webp" alt="lamb" />
           <h2>lamb</h2>
         </div>
       </div>
       <div class="meatTables">
-        <img src="../img/meatTable.png" alt="meatTable" />
+        <div class=".image-container">
+          <img src="../img/meatTable.webp" alt="meatTable" />
+        </div>
         <div id="Alert">
           <h1>Meat tables</h1>
           <p>
@@ -90,18 +117,20 @@
       <h1 style="text-align: center">Our best selling products</h1>
       <div class="bestSellers">
         <div class="align">
-          <img src="../img/shoarma.png" alt="shoarma" />
+          <img src="../img/shoarma.webp" alt="shoarma" />
           <h2>shoarma</h2>
         </div>
         <div class="align">
-          <img src="../img/doner.png" alt="doner" />
+          <img src="../img/doner.webp" alt="doner" />
           <h2>doner</h2>
         </div>
         <div class="align">
-          <img src="../img/Spareribs.png" alt="spareribs" />
+          <img src="../img/Spareribs.webp" alt="spareribs" />
           <h2>spareribs</h2>
         </div>
       </div>
+      <div class="layer spacer"></div>
+      <div id="scrollTOP"><i class="fa-solid fa-arrow-up"></i></div>
     </main>
     <footer>
       <!--  create a footer in the same style as the header but with the information that should be in the footer-->

@@ -6,9 +6,10 @@ footer > li {
   flex-direction: row;
 }
 footer > ul > ul {
-  background-color: var(--main-UI-color);
+  background-color: var(--main-ui-color);
   max-width: calc(100% / 3);
   max-height: 100%;
+  margin: 2rem;
 }
 footer > ul > ul > li,
 footer > ul > ul > h1 {
@@ -19,8 +20,8 @@ footer > ul > ul > h1 {
 }
 footer > ul > li {
   max-width: calc(100% / 3);
-  background-color: var(--main-UI-color);
-  padding: 0.5em;
+  background-color: var(--main-ui-color);
+  padding: 2em;
 }
 
 footer > ul > ul > li.closed {

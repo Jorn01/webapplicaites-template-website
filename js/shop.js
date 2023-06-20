@@ -1,19 +1,3 @@
-document.querySelector("#scrollTOP").addEventListener("click", () => {
-  window.scrollTo(0, 0);
-});
-
-const element = document.getElementById("scrollTOP");
-
-window.addEventListener("scroll", function () {
-  if (window.pageYOffset > 0) {
-    element.classList.add("scrolled");
-    element.classList.remove("unscrolled");
-  } else {
-    element.classList.remove("scrolled");
-    element.classList.add("unscrolled");
-  }
-});
-
 async function fetchItem(value) {
   try {
     if (value == undefined || value == "") {
