@@ -1,13 +1,5 @@
-:root {
-  --main-background-color: #f95050;
-  --secondary-background-color: #82afe1;
-  --secondary-UI-color: #036791;
-  --main-UI-color: #5e7998;
-}
-
 .shop-item {
-  background-color: var(--secondary-UI-color);
-  width: 95%;
+  background-color: var(--main-ui-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +7,11 @@
   margin: 1rem;
   border-radius: 0.5rem;
   /* make a boxshadow for the card items*/
-  box-shadow: 0.1rem 0.1rem 0.4rem 0 var(--secondary-background-color);
+  box-shadow: 0.2rem 0.1rem 0.4rem 0 var(--secondary-ui-color);
+
+  width: 20rem;
+  max-width: 95%;
+  max-height: 15rem;
 }
 
 .shop-item img {

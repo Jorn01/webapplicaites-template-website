@@ -67,53 +67,56 @@
     </nav>
 
     <main class="main">
-      <div class="search">
-        <div class="searchbar">
+      <div class="containershop">
+        <div class="search">
+          <div class="searchbar">
+            <input
+              type="text"
+              placeholder="Search"
+              class="form-control"
+              id="formrrrmm"
+            />
+            <input
+              type="submit"
+              value="Search"
+              class="btn btn-primary"
+              id="submittttt"
+              onclick="onSubmitClick()"
+            />
+          </div>
+          <h2>Price</h2>
+          <label for="Price">Price</label>
           <input
-            type="text"
-            placeholder="Search"
-            class="form-control"
-            id="formrrrmm"
+            type="range"
+            class="custom-range"
+            min="0"
+            max="100"
+            step="5"
+            id="Price"
           />
+          <h2>Weight</h2>
+          <label for="Weight">Weight</label>
+
           <input
-            type="submit"
-            value="Search"
-            class="btn btn-primary"
-            id="submittttt"
-            onclick="onSubmitClick()"
+            type="range"
+            class="custom-range"
+            min="0"
+            max="100"
+            step="5"
+            id="Weight"
+          />
+          <h2>Fat Ratio</h2>
+          <label for="Fat-Ratio">Fat Ratio</label>
+          <input
+            type="range"
+            class="custom-range"
+            min="0"
+            max="100"
+            step="10"
+            id="Fat-Ratio"
           />
         </div>
-        <h2>Price</h2>
-        <label for="Price">Price</label>
-        <input
-          type="range"
-          class="custom-range"
-          min="0"
-          max="100"
-          step="5"
-          id="Price"
-        />
-        <h2>Weight</h2>
-        <label for="Weight">Weight</label>
-
-        <input
-          type="range"
-          class="custom-range"
-          min="0"
-          max="100"
-          step="5"
-          id="Weight"
-        />
-        <h2>Fat Ratio</h2>
-        <label for="Fat-Ratio">Fat Ratio</label>
-        <input
-          type="range"
-          class="custom-range"
-          min="0"
-          max="100"
-          step="10"
-          id="Fat-Ratio"
-        />
+        <div id="shop"></div>
       </div>
       <div class="layer spacer"></div>
     </main>

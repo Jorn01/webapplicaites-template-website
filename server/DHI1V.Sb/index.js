@@ -14,7 +14,3 @@ app.use("/api/classes", classesRouter);
 dataAcces.initializeDatabase();
 
 app.listen(3000);
-
-
-
-

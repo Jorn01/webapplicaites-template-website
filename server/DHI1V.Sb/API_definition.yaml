@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  title: Classes API
+  version: 1.0.0
+  description: API for retrieving class information
+
+paths:
+  /api/classes:
+    get:
+      summary: Get all classes
+      operationId: getClasses
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+
+  /api/classes/{className}:
+    get:
+      summary: Get a single class by name
+      operationId: getSingleClass
+      parameters:
+        - name: className
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/price/{price}:
+    get:
+      summary: Get a class by price
+      operationId: getPriceClass
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+components:
+  schemas:
+    Class:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+        imagaSRC:
+          type: string
+        URL:
+          type: string

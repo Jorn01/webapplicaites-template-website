@@ -3,10 +3,10 @@
   background-color: var(--main-ui-color);
   min-height: 50vh;
   border: 1px solid black;
-  max-width: 20%;
   margin: 2rem 0.5rem;
   padding: 1rem;
   border-radius: 1rem;
+  width: 30%;
   > .searchbar {
     display: flex;
     flex-direction: column;
@@ -27,4 +27,17 @@
       cursor: pointer;
     }
   }
+}
+
+.containershop {
+  display: flex;
+}
+#shop {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+shop-item {
+  max-height: 15rem;
 }

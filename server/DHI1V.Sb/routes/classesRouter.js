@@ -1,7 +1,9 @@
 import express from "express";
-import classes from "../classesRepository.js";
+
+import dataAcces from "../db/dataAcces.js";
 
 const router = express.Router();
+let classes = {};
 
 router.get("/", getClasses);
 router.get("/:className", getSingleClass);
@@ -13,14 +15,10 @@ function getClasses(request, response) {
 }
 
 function getPriceClass(request, response) {
+  classes = dataAcces.selectQuery("ITEM_PRICE", request.params.price);
   console.log(classes);
-
-  const price = request.params.price;
-  console.log(price);
-  const clazz = classes.items.find((clazz) => clazz.price === price);
-  console.log(clazz);
-  if (clazz) {
-    response.json(clazz);
+  if (classes) {
+    response.json(classes);
   } else {
     response.status(404);
     response.json();

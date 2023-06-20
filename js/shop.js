@@ -19,15 +19,15 @@ async function printData() {
   if (Array.isArray(data.items)) {
     for (let i = 0; i < data.items.length; i++) {
       let elementToPrintToThingus = new shop_item();
-      let main = document.querySelector("main");
-      main.appendChild(elementToPrintToThingus);
+      let shop = document.querySelector("#shop");
+      shop.appendChild(elementToPrintToThingus);
     }
   } else if (data.items == "") {
     console.log("Nothing to print");
   } else {
     let elementToPrintToThingus = new shop_item();
-    let main = document.querySelector("main");
-    main.appendChild(elementToPrintToThingus);
+    let shop = document.querySelector("#shop");
+    shop.appendChild(elementToPrintToThingus);
   }
 }
 let v = "";
@@ -60,8 +60,9 @@ async function fetchPrice(v) {
     let jsonData = await response.json();
     data = jsonData;
   } else {
-    let response = await fetch(`http://localhost:3000/api/classes/${v}`);
+    let response = await fetch(`http://localhost:3000/api/classes/price/${v}`);
     let jsonData = await response.json();
     data = jsonData;
+    Array.isArray(data.items);
   }
 }

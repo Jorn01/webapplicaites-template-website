@@ -48,12 +48,14 @@ class shop_item extends HTMLElement {
 let indexNumber = -1;
 const getData = () => {
   console.log(data);
+  console.log(Array.isArray(data));
+  console.log(data);
   // check if data is an array
-  if (!Array.isArray(data.items)) {
+  if (data.length > 1) {
     return data;
   } else {
     indexNumber++;
-    return data.items[indexNumber];
+    return data[0];
   }
 };
 
