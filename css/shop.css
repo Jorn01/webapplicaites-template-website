@@ -2,14 +2,16 @@
   grid-area: search;
   background-color: var(--main-ui-color);
   min-height: 50vh;
+  height: 70vh;
   border: 1px solid black;
   margin: 2rem 0.5rem;
   padding: 1rem;
   border-radius: 1rem;
-  width: 30%;
+  width: 75%;
   > .searchbar {
     display: flex;
     flex-direction: column;
+    height: 100%;
     > input {
       margin: 0.5rem 0;
       padding: 0.5rem;
@@ -25,6 +27,19 @@
       color: var(--text-color);
       font-weight: bold;
       cursor: pointer;
+    }
+  }
+
+  > * {
+    margin: 0.5rem 0.3rem;
+  }
+  #containerButtonSubmit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 3rem 0;
+    #submit {
+      width: 100%;
     }
   }
 }

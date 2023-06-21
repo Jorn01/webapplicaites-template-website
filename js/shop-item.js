@@ -1,8 +1,7 @@
-let data;
 class shop_item extends HTMLElement {
-  constructor(data) {
+  constructor(dataatm) {
     super();
-    this.data = data;
+    this.data = dataatm;
     this.attachShadow({ mode: "open" });
   }
   static get observedAttributes() {
@@ -14,7 +13,7 @@ class shop_item extends HTMLElement {
   }
 
   connectedCallback() {
-    const { name, price, imagaSRC, URL } = getData();
+    const { name, price, imagaSRC, URL } = this.data;
 
     this.setAttribute("name", name);
     this.setAttribute("price", price);
@@ -44,20 +43,6 @@ class shop_item extends HTMLElement {
         </div>`;
   }
 }
-
-let indexNumber = -1;
-const getData = () => {
-  console.log(data);
-  console.log(Array.isArray(data));
-  console.log(data);
-  // check if data is an array
-  if (data.length > 1) {
-    return data;
-  } else {
-    indexNumber++;
-    return data[0];
-  }
-};
 
 customElements.define("shop-item", shop_item);
 

@@ -21,6 +21,19 @@
     <script src="../js/nav.js" defer></script>
     <script src="../js/shop-item.js" defer></script>
     <script src="../js/shop.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.css"
+      integrity="sha512-MKxcSu/LDtbIYHBNAWUQwfB3iVoG9xeMCm32QV5hZ/9lFaQZJVaXfz9aFa0IZExWzCpm7OWvp9zq9gVip/nLMg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"
+      integrity="sha512-UOJe4paV6hYWBnS0c9GnIRH8PLm2nFK22uhfAvsTIqd3uwnWsVri1OPn5fJYdLtGY3wB11LGHJ4yPU1WFJeBYQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <nav>
@@ -81,40 +94,29 @@
               value="Search"
               class="btn btn-primary"
               id="submittttt"
-              onclick="onSubmitClick()"
+              onclick="onButtonClickShop()"
             />
-          </div>
-          <h2>Price</h2>
-          <label for="Price">Price</label>
-          <input
-            type="range"
-            class="custom-range"
-            min="0"
-            max="100"
-            step="5"
-            id="Price"
-          />
-          <h2>Weight</h2>
-          <label for="Weight">Weight</label>
 
-          <input
-            type="range"
-            class="custom-range"
-            min="0"
-            max="100"
-            step="5"
-            id="Weight"
-          />
-          <h2>Fat Ratio</h2>
-          <label for="Fat-Ratio">Fat Ratio</label>
-          <input
-            type="range"
-            class="custom-range"
-            min="0"
-            max="100"
-            step="10"
-            id="Fat-Ratio"
-          />
+            <!-- Price-->
+            <h2>Price</h2>
+            <label for="Price" id="priceLabel">Price</label>
+            <div class="slider" id="price"></div>
+
+            <!-- weight-->
+            <h2>Weight</h2>
+            <label for="Weight" id="weightLabel">Weight</label>
+            <div class="slider" id="weight"></div>
+
+            <!-- Fat ratio-->
+            <h2>Fat Ratio</h2>
+            <label for="Fat-Ratio" id="fatRatioLabel">Fat Ratio</label>
+            <div class="slider" id="fat_ratio"></div>
+            <div id="containerButtonSubmit">
+              <button type="submit" class="btn btn-primary" id="submit">
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
         <div id="shop"></div>
       </div>

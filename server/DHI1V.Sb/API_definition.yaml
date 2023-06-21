@@ -21,7 +21,7 @@ paths:
 
   /api/classes/{className}:
     get:
-      summary: Get a single class by name
+      summary: Get a single class by category
       operationId: getSingleClass
       parameters:
         - name: className
@@ -39,10 +39,32 @@ paths:
         "404":
           description: Class not found
 
+  /api/classes/name/{name}:
+    get:
+      summary: Get classes by name
+      operationId: getNameItems
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
   /api/classes/price/{price}:
     get:
-      summary: Get a class by price
-      operationId: getPriceClass
+      summary: Get classes by price
+      operationId: getPriceItems
       parameters:
         - name: price
           in: path
@@ -55,20 +77,221 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Class"
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
         "404":
           description: Class not found
 
-components:
-  schemas:
-    Class:
-      type: object
-      properties:
-        name:
-          type: string
-        price:
-          type: integer
-        imagaSRC:
-          type: string
-        URL:
-          type: string
+  /api/classes/item_id/{item_id}:
+    get:
+      summary: Get classes by item ID
+      operationId: getIdItems
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/category/{category_id}:
+    get:
+      summary: Get classes by category
+      operationId: getCategoryItems
+      parameters:
+        - name: category_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/order/{order_id}:
+    get:
+      summary: Get classes by order
+      operationId: getOrderItems
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/user/{user_id}:
+    get:
+      summary: Get classes by user
+      operationId: getUserOrders
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/weight/{weight}:
+    get:
+      summary: Get classes by weight
+      operationId: getWeightItems
+      parameters:
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get classes by fat ratio
+      operationId: getFatRatioItems
+      parameters:
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/price/{price}/weight/{weight}:
+    get:
+      summary: Get classes by price and weight
+      operationId: getPriceWeightItems
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/price/{price}/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get classes by price and fat ratio
+      operationId: getPriceFatRatioItems
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class not found
+
+  /api/classes/weight/{weight}/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get classes by weight and fat ratio
+      operationId: getWeightFatRatioItems
+      parameters:
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Class"
+        "404":
+          description: Class
