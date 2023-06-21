@@ -10,7 +10,7 @@ router.get("/:className", getSingleClass);
 router.get("/price/:price", getPriceClass);
 
 function getClasses(request, response) {
-  console.log(classes);
+  classes = dataAcces.selectQuery("ITEMS");
   response.json(classes);
 }
 
@@ -27,8 +27,6 @@ function getPriceClass(request, response) {
 
 function getSingleClass(request, response) {
   const className = request.params.className;
-  const clazz = classes.items.find((clazz) => clazz.name === className);
-
   if (clazz) {
     response.json(clazz);
   } else {
