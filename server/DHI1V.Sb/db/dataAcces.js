@@ -26,27 +26,23 @@ function DeleteAllData() {
 // create tables
 function CreateInitialData() {
   let dataPresent;
-  try {
-    console.log(dataAcces.db.prepare("SELECT COUNT(*) FROM item"));
-    dataPresent = true;
-  } catch (error) {
-    dataPresent = false;
-  }
-  if (dataPresent) {
-    return;
-  }
-
   createQueriesNames.forEach((queryName) => {
     const query = createQueries[queryName];
     const stmt = Query(query);
     stmt.run();
   });
-
+  // loop over the insert queries names
+  // names : USER, ORDER, ORDERITEM, CATEGORY, ITEM
   insertQueriesNames.forEach((queryName) => {
+    // get the query from the insertQueries object
     const query = insertQueries[queryName];
+    // make the statement
     const stmt = Query(query);
+
+    // switch over the queryName
     switch (queryName) {
       case "CATEGORY":
+        // check for the presence of data  } else {  --> insert dummy data
         let categoryPresent;
         try {
           Query("SELECT COUNT(*) FROM category");
@@ -58,6 +54,8 @@ function CreateInitialData() {
         if (categoryPresent) {
           break;
         } else {
+          // loop over the dummy data
+          // insert the dummy data
           CategorysDummyData.forEach((category) => {
             stmt.run(category.name);
           });
