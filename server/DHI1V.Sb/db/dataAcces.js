@@ -26,18 +26,25 @@ const {
 } = Data;
 
 function initializeDatabase(fileName) {
-  // initialize database
-  dataAcces.db = new Database("./db/Database.sqlite");
+  try {
+    // initialize database
+    dataAcces.db = new Database("./db/Database.sqlite");
 
-  CreateInitialData();
+    CreateInitialData();
+  } catch (error) {
+    console.error("An error occurred while initializing the database:", error);
+  }
 }
 
 function insertQuery3Params(queryName, param1, param2, param3) {
-  const query = insertQueries[queryName];
-  const stmt = Query(query);
-  stmt.run(param1, param2, param3);
+  try {
+    const query = insertQueries[queryName];
+    const stmt = Query(query);
+    stmt.run(param1, param2, param3);
+  } catch (error) {
+    console.error("An error occurred while executing the insert query:", error);
+  }
 }
-
 function updateQuery6Params(
   queryName,
   newName,
@@ -45,19 +52,26 @@ function updateQuery6Params(
   newPassword,
   User_ID
 ) {
-  const query = putQueries[queryName];
-  const stmt = Query(query);
-  const result = stmt.run(newName, newEmail, newPassword, User_ID);
+  try {
+    const query = putQueries[queryName];
+    const stmt = Query(query);
+    const result = stmt.run(newName, newEmail, newPassword, User_ID);
+  } catch (error) {
+    console.error("An error occurred while executing the update query:", error);
+  }
 }
-
 //delete all tables
 function DeleteAllData() {
-  dropTablesNames.forEach((queryName) => {
-    const query = dropTables[queryName];
-    console.log(query);
-    const stmt = Query(query);
-    stmt.run();
-  });
+  try {
+    dropTablesNames.forEach((queryName) => {
+      const query = dropTables[queryName];
+      console.log(query);
+      const stmt = Query(query);
+      stmt.run();
+    });
+  } catch (error) {
+    console.error("An error occurred while deleting all data:", error);
+  }
 }
 
 //! only returns true or false;
@@ -170,31 +184,51 @@ function Query(query) {
 }
 
 const selectQuery1Param = (queryName, param) => {
-  const query = selectQueries[queryName];
-  const stmt = Query(query);
-  const result = stmt.all(param);
-  return result;
+  try {
+    const query = selectQueries[queryName];
+    const stmt = Query(query);
+    const result = stmt.all(param);
+    return result;
+  } catch (error) {
+    console.error("An error occurred while executing the select query:", error);
+    return null;
+  }
 };
 
 const selectQuery0Params = (queryName) => {
-  const query = selectQueries[queryName];
-  const stmt = Query(query);
-  const result = stmt.all();
-  return result;
+  try {
+    const query = selectQueries[queryName];
+    const stmt = Query(query);
+    const result = stmt.all();
+    return result;
+  } catch (error) {
+    console.error("An error occurred while executing the select query:", error);
+    return null;
+  }
 };
 
 const selectQuery2Params = (queryName, param1, param2) => {
-  const query = selectQueries[queryName];
-  const stmt = Query(query);
-  const result = stmt.all(param1, param2);
-  return result;
+  try {
+    const query = selectQueries[queryName];
+    const stmt = Query(query);
+    const result = stmt.all(param1, param2);
+    return result;
+  } catch (error) {
+    console.error("An error occurred while executing the select query:", error);
+    return null;
+  }
 };
 
 const selectQuery3Params = (queryName, param1, param2, param3) => {
-  const query = selectQueries[queryName];
-  const stmt = Query(query);
-  const result = stmt.all(param1, param2, param3);
-  return result;
+  try {
+    const query = selectQueries[queryName];
+    const stmt = Query(query);
+    const result = stmt.all(param1, param2, param3);
+    return result;
+  } catch (error) {
+    console.error("An error occurred while executing the select query:", error);
+    return null;
+  }
 };
 
 const selectQuery6Params = (
@@ -206,23 +240,32 @@ const selectQuery6Params = (
   fat_ratio_LowerBound,
   fat_ratio_UpperBound
 ) => {
-  const query = selectQueries[queryName];
-  const stmt = Query(query);
-  const result = stmt.all(
-    price_LowerBound,
-    price_UpperBound,
-    weight_LowerBound,
-    weight_UpperBound,
-    fat_ratio_LowerBound,
-    fat_ratio_UpperBound
-  );
-  return result;
+  try {
+    const query = selectQueries[queryName];
+    const stmt = Query(query);
+    const result = stmt.all(
+      price_LowerBound,
+      price_UpperBound,
+      weight_LowerBound,
+      weight_UpperBound,
+      fat_ratio_LowerBound,
+      fat_ratio_UpperBound
+    );
+    return result;
+  } catch (error) {
+    console.error("An error occurred while executing the select query:", error);
+  }
 };
 
 function DeleteQuery2Params(queryName, param1, param2) {
-  const query = deleteRowQueries[queryName];
-  const stmt = Query(query);
-  stmt.run(param1, param2);
+  try {
+    const query = deleteRowQueries[queryName];
+    const stmt = Query(query);
+    stmt.run(param1, param2);
+    return true;
+  } catch (error) {
+    console.error("An error occurred while executing the delete query:", error);
+  }
 }
 
 const dataAcces = {

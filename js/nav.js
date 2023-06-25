@@ -1,9 +1,12 @@
 document.querySelectorAll("li:has(>.fa-phone)").forEach((element) => {
-  element.addEventListener("click", () => (location.href = "phone.html"));
+  element.addEventListener("click", () => (location.href = "tel:0612345678"));
 });
 
 document.querySelectorAll("li:has(>.fa-envelope)").forEach((element) => {
-  element.addEventListener("click", () => (location.href = "email.html"));
+  element.addEventListener(
+    "click",
+    () => (window.location.href = "mailto:1234@student.saxion.nl")
+  );
 });
 
 const modal = document.getElementsByClassName("modal")[0];

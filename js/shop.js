@@ -22,13 +22,20 @@ document.querySelector("#submit").addEventListener("click", () => {
 });
 
 async function getData(inputValue) {
-  const data = await fetch(`http://localhost:3000/api/classes/${inputValue}`)
-    .then((response) => response.json())
-    .then((data) => {
-      return data;
-    });
-  console.log(data);
-  return data;
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/item/${inputValue}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log("An error occurred:", error);
+    throw error;
+  }
 }
 
 async function printData(inputValue) {

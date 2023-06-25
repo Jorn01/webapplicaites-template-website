@@ -40,37 +40,45 @@
         <li id="contact-small">
           <i class="fa-solid fa-bars"></i>
           <ul>
-            <li class="contact-bar">
-              <i class="fa-solid fa-phone" style="color: #ffffff"></i>
-            </li>
-            <li class="contact-bar">
-              <i class="fa-solid fa-envelope" style="color: #ffffff"></i>
-            </li>
-            <li class="contact-bar">
-              <i class="fa-solid fa-user" style="color: #ffffff"></i>
-            </li>
+            <li class="contact-bar"><i class="fa-solid fa-phone"></i></li>
+            <li class="contact-bar"><i class="fa-solid fa-envelope"></i></li>
+            <li class="contact-bar"><i class="fa-solid fa-user"></i></li>
           </ul>
         </li>
       </ul>
       <div id="popupContainer">
         <div id="popupContent">
-          <h2>Login</h2>
-          <form action="">
-            <div id="username">
+          <h2 id="status">Login</h2>
+          <form>
+            <div>
               <label for="username">Username</label>
               <input type="text" name="username" id="username" />
             </div>
-            <div id="password">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div>
               <label for="password">Password</label>
               <input type="password" name="password" id="password" />
             </div>
-            <button type="submit" class="btn btn-success">Login</button>
+            <div>
+              <label for="Update"
+                >Update ONLY FOR UPDATE -- input your user ID</label
+              >
+              <input type="text" name="Update" id="User_ID" />
+            </div>
+            <div id="submit_buttons">
+              <button id="Login" class="btn btn-success">Login</button>
+              <button id="Register" class="btn btn-primary">Register</button>
+              <button id="Delete" class="btn btn-danger">Delete</button>
+              <button id="Update" class="btn btn-warning">Update</button>
+            </div>
           </form>
           <button id="closePopup" class="btn btn-danger">Close</button>
         </div>
       </div>
     </nav>
-
     <main>
       <div class="container-image-overlay">
         <img src="../img/homephotostock.jpg" alt="stockPhoto" />
