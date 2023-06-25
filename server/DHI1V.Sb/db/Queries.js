@@ -1,7 +1,7 @@
 const createQueries = {
   USER: "CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, password TEXT)",
   ORDER:
-    "CREATE TABLE IF NOT EXISTS `order` (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, FOREIGN KEY(user_id) REFERENCES user(id))",
+    "CREATE TABLE IF NOT EXISTS 'order' (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, FOREIGN KEY(user_id) REFERENCES user(id))",
   CATEGORY:
     "CREATE TABLE IF NOT EXISTS category (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)",
   ITEM: "CREATE TABLE IF NOT EXISTS item (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price INTEGER, weight INTEGER, fat_ratio INTEGER , image_src TEXT, url TEXT, category_id INTEGER, FOREIGN KEY(category_id) REFERENCES category(id))",
@@ -11,15 +11,15 @@ const createQueries = {
 
 const insertQueries = {
   USER: "INSERT INTO user (name, email, password) VALUES (?, ?, ?)",
-  ORDER: "INSERT INTO `order` (user_id) VALUES (?)",
+  ORDER: "INSERT INTO 'order' (user_id) VALUES (?)",
   CATEGORY: "INSERT INTO category (name) VALUES (?)",
   ITEM: "INSERT INTO item (name, price,weight,fat_ratio, image_src, url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
   ORDER_ITEM: "INSERT INTO order_item (order_id, item_id) VALUES (?, ?)",
 };
 
 const selectQueries = {
-  USER: "SELECT * FROM user WHERE id = ?",
-  ORDER: "SELECT * FROM `order` WHERE user_id = ?",
+  USER: "SELECT * FROM user WHERE email like ? AND password like ?",
+  ORDER: "SELECT * FROM 'order' WHERE user_id = ?",
   ORDER_ITEM: "SELECT * FROM order_item WHERE order_id = ?",
   CATEGORY: "SELECT * FROM category WHERE id = ?",
   ITEMS: "SELECT * FROM item",
@@ -41,10 +41,18 @@ const selectQueries = {
 
 const dropTables = {
   USER: "DROP TABLE IF EXISTS user",
-  ORDER: "DROP TABLE IF EXISTS `order`",
+  ORDER: "DROP TABLE IF EXISTS 'order'",
   ORDER_ITEM: "DROP TABLE IF EXISTS order_item",
   CATEGORY: "DROP TABLE IF EXISTS category",
   ITEM: "DROP TABLE IF EXISTS item",
+};
+
+const putQueries = {
+  USER: "UPDATE `user` SET name = ?, email = ?, password = ? WHERE id = ?",
+};
+
+const deleteRowQueries = {
+  USER: "DELETE FROM user WHERE email = ? AND password = ?",
 };
 
 const Queries = {
@@ -52,6 +60,8 @@ const Queries = {
   insertQueries: insertQueries,
   selectQueries: selectQueries,
   dropTables: dropTables,
+  putQueries: putQueries,
+  deleteRowQueries: deleteRowQueries,
 };
 
 export default Queries;

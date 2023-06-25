@@ -13,11 +13,12 @@ class shop_item extends HTMLElement {
   }
 
   connectedCallback() {
-    const { name, price, imagaSRC, URL } = this.data;
+    const { name, price, image_src, URL } = this.data;
 
     this.setAttribute("name", name);
     this.setAttribute("price", price);
-    this.setAttribute("imageSRC", imagaSRC);
+    this.setAttribute("imageSRC", image_src);
+    console.log(image_src);
     this.render();
 
     this.addEventListener("click", () => {
@@ -34,13 +35,29 @@ class shop_item extends HTMLElement {
     <style>
     @import "../css/shop-item.css";
     </style>
-        <div class="shop-item">
-          <img src="../img/${imageSRC}" alt="${Name}" />
-          <div class="text">
-          <h1>${Name}</h1>
-          <h3>${Price}</h3>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <div class="shop-item">
+    <div class="img-container">
+      <img src="${imageSRC}" alt="" />
+    </div>
+    <div class="text-container">
+      <h1>${Name}</h1>
+      <div class="description-container">
+        <h5>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+          porro cumque aspernatur ducimus consectetur at, quia cupiditate
+          alias nihil dolore.
+        </h5>
+        <div class="price-button-container">
+          <button type="submit" class="btn btn-primary">Add</button>
+          <div class="price-container">
+            <h3>€ ${Price}</h3>
           </div>
-        </div>`;
+        </div>
+      </div>
+    </div>
+  </div>
+`;
   }
 }
 

@@ -63,16 +63,23 @@
       <div id="popupContainer">
         <div id="popupContent">
           <h2>Login</h2>
-          <form action="">
-            <div id="username">
+          <form>
+            <div>
               <label for="username">Username</label>
               <input type="text" name="username" id="username" />
             </div>
-            <div id="password">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div>
               <label for="password">Password</label>
               <input type="password" name="password" id="password" />
             </div>
-            <button type="submit" class="btn btn-success">Login</button>
+            <div id="submit_buttons">
+              <button id="Login" class="btn btn-success">Login</button>
+              <button id="Register" class="btn btn-primary">Register</button>
+            </div>
           </form>
           <button id="closePopup" class="btn btn-danger">Close</button>
         </div>

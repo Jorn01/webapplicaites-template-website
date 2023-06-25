@@ -27,6 +27,7 @@ async function getData(inputValue) {
     .then((data) => {
       return data;
     });
+  console.log(data);
   return data;
 }
 

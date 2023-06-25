@@ -2,11 +2,20 @@ import Database from "better-sqlite3";
 import Queries from "./Queries.js";
 import Data from "./dummyData.js";
 
-const { createQueries, insertQueries, selectQueries, dropTables } = Queries;
+const {
+  createQueries,
+  insertQueries,
+  selectQueries,
+  dropTables,
+  putQueries,
+  deleteRowQueries,
+} = Queries;
 const createQueriesNames = Object.keys(createQueries);
 const insertQueriesNames = Object.keys(insertQueries);
 const selectQueriesNames = Object.keys(selectQueries);
 const dropTablesNames = Object.keys(dropTables);
+const putQueriesNames = Object.keys(putQueries);
+const deleteRowQueriesNames = Object.keys(deleteRowQueries);
 
 const {
   Categorys: CategorysDummyData,
@@ -22,6 +31,25 @@ function initializeDatabase(fileName) {
 
   CreateInitialData();
 }
+
+function insertQuery3Params(queryName, param1, param2, param3) {
+  const query = insertQueries[queryName];
+  const stmt = Query(query);
+  stmt.run(param1, param2, param3);
+}
+
+function updateQuery6Params(
+  queryName,
+  newName,
+  newEmail,
+  newPassword,
+  User_ID
+) {
+  const query = putQueries[queryName];
+  const stmt = Query(query);
+  const result = stmt.run(newName, newEmail, newPassword, User_ID);
+}
+
 //delete all tables
 function DeleteAllData() {
   dropTablesNames.forEach((queryName) => {
@@ -36,7 +64,7 @@ function DeleteAllData() {
 const checkForData = (queryName) => {
   let queryResult;
   try {
-    queryResult = Query(`SELECT COUNT(*) FROM ${queryName}`).all();
+    queryResult = Query(`SELECT COUNT(*) FROM '${queryName}'`).all();
   } catch (error) {
     console.error(error);
   }
@@ -134,7 +162,11 @@ function CreateInitialData() {
 
 // write queries to make the tables
 function Query(query) {
-  return dataAcces.db.prepare(query);
+  try {
+    return dataAcces.db.prepare(query);
+  } catch (error) {
+    console.log(query);
+  }
 }
 
 const selectQuery1Param = (queryName, param) => {
@@ -155,6 +187,13 @@ const selectQuery2Params = (queryName, param1, param2) => {
   const query = selectQueries[queryName];
   const stmt = Query(query);
   const result = stmt.all(param1, param2);
+  return result;
+};
+
+const selectQuery3Params = (queryName, param1, param2, param3) => {
+  const query = selectQueries[queryName];
+  const stmt = Query(query);
+  const result = stmt.all(param1, param2, param3);
   return result;
 };
 
@@ -180,13 +219,23 @@ const selectQuery6Params = (
   return result;
 };
 
+function DeleteQuery2Params(queryName, param1, param2) {
+  const query = deleteRowQueries[queryName];
+  const stmt = Query(query);
+  stmt.run(param1, param2);
+}
+
 const dataAcces = {
   initializeDatabase: initializeDatabase,
   db: null,
   selectQuery0Params: selectQuery0Params,
   selectQuery1Param: selectQuery1Param,
   selectQuery2Params: selectQuery2Params,
+  selectQuery3Params: selectQuery3Params,
   selectQuery6Params: selectQuery6Params,
+  updateQuery6Params: updateQuery6Params,
+  insertQuery3Params: insertQuery3Params,
+  DeleteQuery2Params: DeleteQuery2Params,
 };
 
 export default dataAcces;
