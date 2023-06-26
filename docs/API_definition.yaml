@@ -1,0 +1,335 @@
+openapi: 3.0.0
+info:
+  title: My API
+  version: 1.0.0
+paths:
+  /api/item:
+    get:
+      summary: Get all items
+      responses:
+        "200":
+          description: OK
+
+  /api/item/{className}:
+    get:
+      summary: Get items by class name
+      parameters:
+        - name: className
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+
+  /api/item/name/{name}:
+    get:
+      summary: Get items by name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+
+  /api/item/price/{price}:
+    get:
+      summary: Get items by price
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/item_id/{item_id}:
+    get:
+      summary: Get item by item ID
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/category/{category_id}:
+    get:
+      summary: Get items by category ID
+      parameters:
+        - name: category_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/order/{order_id}:
+    get:
+      summary: Get items by order ID
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/user/{user_id}:
+    get:
+      summary: Get items by user ID
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/weight/{weight}:
+    get:
+      summary: Get items by weight
+      parameters:
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get items by fat ratio
+      parameters:
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/price/{price}/weight/{weight}:
+    get:
+      summary: Get items by price and weight
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/price/{price}/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get items by price and fat ratio
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/weight/{weight}/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get items by weight and fat ratio
+      parameters:
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/item/price/{price}/weight/{weight}/fat_ratio/{fat_ratio}:
+    get:
+      summary: Get items by price, weight, and fat ratio
+      parameters:
+        - name: price
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: weight
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: fat_ratio
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/login/Email/{email}/Password/{password}:
+    get:
+      summary: Get login details by email and password
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+
+  /api/login/Email/{email}/UserName/{user_name}/Password/{password}/User_ID/{User_ID}:
+    put:
+      summary: Update login details
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: user_name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: User_ID
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/login:
+    post:
+      summary: Create a new login
+      responses:
+        "200":
+          description: OK
+
+  /api/login/Email/{email}/Password/{password}/delete:
+    delete:
+      summary: Delete login details by email and password
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        price:
+          type: integer
+        weight:
+          type: integer
+        fat_ratio:
+          type: integer
+        image_src:
+          type: string
+        url:
+          type: string
+        category_id:
+          type: integer
+
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        user_id:
+          type: integer
+
+    OrderItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        order_id:
+          type: integer
+        item_id:
+          type: integer
